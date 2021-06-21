@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     title: 'Navigation',
-    initialRoute: '/',
+    // initialRoute: '/',
+    home: FirstRoute(),
     routes: {
-      '/': (context) => FirstRoute(),
-      '/second': (context) => SecondRoute(),
+      '/second': (_) => SecondRoute(),
     },));
 }
 
@@ -23,7 +23,7 @@ class FirstRoute extends StatelessWidget {
         body: Center(
           child: ElevatedButton(child: Text('Next'),
           onPressed: () {
-            Navigator.pushNamed(context, '/second');
+            Navigator.of(context).pushNamed('/second');
           },),
         ),
       );
