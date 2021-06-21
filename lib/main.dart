@@ -1,9 +1,14 @@
+
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
     title: 'Navigation',
-    home:FirstRoute() ,));
+    initialRoute: '/',
+    routes: {
+      '/': (context) => FirstRoute(),
+      '/second': (context) => SecondRoute(),
+    },));
 }
 
 class FirstRoute extends StatelessWidget {
@@ -18,8 +23,7 @@ class FirstRoute extends StatelessWidget {
         body: Center(
           child: ElevatedButton(child: Text('Next'),
           onPressed: () {
-            Navigator.push(context,
-            MaterialPageRoute(builder: (context) => SecondRoute()));
+            Navigator.pushNamed(context, '/second');
           },),
         ),
       );
@@ -37,10 +41,11 @@ class SecondRoute extends StatelessWidget {
           title: Text('Second Page'),
         ),
         body: Center(
-          child: ElevatedButton(child: Text('Back'),
+          child: ElevatedButton(child: Text('back'),
           onPressed: () {
             Navigator.pop(context);
           },),
         ),);
   }
 }
+
